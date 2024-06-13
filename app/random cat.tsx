@@ -1,4 +1,4 @@
-import { View, Text, Image, Button } from "react-native";
+import { View, Text, StyleSheet, Image, Button } from "react-native";
 import { Link, useNavigation, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 
@@ -9,7 +9,7 @@ export default function Details() {
 
   const [cat, setCat] = useState({
     "id":"43o",
-    "url":"https://cdn2.thecatapi.com/images/43o.jpg",
+    "url":"https://static.vecteezy.com/system/resources/previews/004/473/618/original/simple-loading-process-icon-on-white-background-free-vector.jpg",
     "width":500,
     "height":354
   })
@@ -30,35 +30,47 @@ export default function Details() {
   }, [])
 
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: 'white' }}>
-      
-      <Text>hi</Text>
-      <Text>cat id: {cat.id}</Text>
+    <View style={styles.container}>
+      <Text style={StyleSheet.compose(styles.text, styles.title)}>...meow</Text>
+      <Text></Text>
       <Image
-        style={{
-          minHeight:200,
-          minWidth:300
-        }}
+        style={styles.image} 
         source={{
           uri: cat.url,
         }}
       />
-      
-      {/* <Text>Details Screen</Text>
-
-      <Link href="/home">Go to Home</Link>
-
-      <Button
-        title="Go to Details... again"
-        onPress={() => router.push("/random cat")}
-      />
-      <Button title="Go back" onPress={() => router.back()} />
-      <Button
-        title="Go back to first screen in stack"
-        onPress={() => navigation.popToTop()}
-      /> */}
+      <Text></Text>
     </View>
   );
 }
 
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#25292e',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 24
+  },
+  text: {
+    color: 'white',
+    fontSize: 18,
+  },
+  title: {
+    fontSize: 24,
+    marginTop: 24,
+    marginBottom: 8,
+    fontWeight: "bold"
+  },
+  button: {
+    margin: 20,
+    padding: 10,
+    color: 'white',
+    backgroundColor: 'purple'
+  },
+  image: {
+    minHeight:200,
+    minWidth:300
+  }
+});
